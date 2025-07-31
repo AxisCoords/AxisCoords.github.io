@@ -1,0 +1,297 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #fdfdfd;
+  color: #222;
+  line-height: 1.6;
+  padding-top: 60px;
+}
+
+/* Header & Navigation */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #0f172a;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #38bdf8;
+}
+
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+    
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: #0f172a;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 0;
+        gap: 1.5rem;
+        clip-path: circle(0px at 90% -10%);
+        -webkit-clip-path: circle(0px at 90% -10%);
+        transition: all 0.5s ease-out;
+        pointer-events: none;
+    }
+    
+    .nav-links.open {
+        clip-path: circle(1000px at 90% -10%);
+        -webkit-clip-path: circle(1000px at 90% -10%);
+        pointer-events: all;
+    }
+    
+    .nav-links a {
+        opacity: 0;
+        transition: opacity 0.4s ease;
+    }
+    
+    .nav-links.open a {
+        opacity: 1;
+    }
+}
+
+/* Section Styles */
+section {
+  padding: 4rem 2rem;
+  max-width: 1100px;
+  margin: auto;
+}
+
+section h2, section h3 {
+  margin-bottom: 1rem;
+  color: #0f172a;
+}
+
+/* Home Section */
+#home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+#home p {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+#home button {
+  background-color: #0f172a;
+  color: white;
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+#home button:hover {
+  background-color: #1e293b;
+}
+
+#home div:nth-child(2) a {
+  margin: 0 0.5rem;
+  font-size: 1.8rem;
+  color: #0f172a;
+  transition: color 0.3s ease;
+}
+
+#home div:nth-child(2) a:hover {
+  color: #38bdf8;
+}
+
+/* About Me Section */
+#about-me {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+#about-me p a {
+  color: #3b82f6;
+  text-decoration: none;
+}
+
+/* Skills Section */
+#skills > div {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+  background: #f1f5f9;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+#skills div div {
+  text-align: center;
+}
+
+#skills i {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+progress {
+  width: 100%;
+  height: 10px;
+  border-radius: 4px;
+}
+
+progress::-webkit-progress-bar {
+  background-color: #e2e8f0;
+  border-radius: 4px;
+}
+
+progress::-webkit-progress-value {
+  background-color: #38bdf8;
+  border-radius: 4px;
+}
+
+/* Projects Section */
+#projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+#projects > div {
+  background: #f1f5f9;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+#projects h3 {
+  margin-bottom: 0.8rem;
+}
+
+#projects a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+#projects a:hover {
+  text-decoration: underline;
+}
+
+/* Contact Section */
+#contact form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  max-width: 700px;
+  margin: auto;
+}
+
+/* Horizontal name inputs */
+#contact form > div:first-of-type {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* Horizontal buttons */
+#contact form > div:last-of-type {
+  display: flex;
+  gap: 1rem;
+}
+
+#contact form > div:last-of-type button {
+  flex: 1;
+}
+
+#contact input,
+#contact textarea,
+#contact button {
+  padding: 0.8rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+#contact textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+#contact button {
+  background-color: #0f172a;
+  color: white;
+  transition: background 0.3s ease;
+}
+
+#contact button:hover {
+  background-color: #1e293b;
+  cursor: pointer;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  #contact form > div:first-of-type {
+    grid-template-columns: 1fr;
+  }
+  
+  #contact form > div:last-of-type {
+    flex-direction: column;
+  }
+}
+
+/* Footer */
+footer {
+  background: #0f172a;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+}
