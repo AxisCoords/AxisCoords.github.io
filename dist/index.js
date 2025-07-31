@@ -59,7 +59,7 @@ const setupDriveDownload = () => {
         return;
     downloadBtn.addEventListener('click', () => {
         // Replace this with your actual Google Drive link
-        const driveLink = "https://drive.google.com/file/d/1AkZnjNQfN2MfsIq84EGvHlil8Q6hCA0a/view?usp=sharing";
+        const driveLink = "https://drive.google.com/file/d/1zSw_w1PrpIQx3b9R8MyEP01ae8-jA-rw/view?usp=sharing";
         // Method 1: Direct download (best for most cases)
         window.open(driveLink, '_blank');
     });
