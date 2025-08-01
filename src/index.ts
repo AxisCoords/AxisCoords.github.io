@@ -70,43 +70,8 @@ const setupDriveDownload = () => {
   });
 };
 
-// Redirect to thankyou.html on contact form submit
-const setupContactFormSubmission = (): void => {
-  const contactForm = document.getElementById('contact-form') as HTMLFormElement | null;
-  if (!contactForm) return;
-
-  contactForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    const formData = new FormData(contactForm);
-    const data = {
-      firstName: formData.get('firstName'),
-      lastName: formData.get('lastName'),
-      email: formData.get('email'),
-      message: formData.get('message')
-    };
-
-    try {
-      const response = await fetch('/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      });
-
-      if (response.ok) {
-        window.location.href = 'thankyou.html';
-      } else {
-        alert('Failed to send message. Please try again later.');
-      }
-    } catch (error) {
-      alert('Error sending message.');
-    }
-  });
-};
-
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
   initMobileNavigation();
   setupDriveDownload();
-  setupContactFormSubmission();
 });

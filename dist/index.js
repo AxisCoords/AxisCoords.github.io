@@ -1,13 +1,4 @@
 "use strict";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 // Initialize and type our elements
 const initElements = () => {
     return {
@@ -64,41 +55,8 @@ const setupDriveDownload = () => {
         window.open(driveLink, '_blank');
     });
 };
-// Redirect to thankyou.html on contact form submit
-const setupContactFormSubmission = () => {
-    const contactForm = document.getElementById('contact-form');
-    if (!contactForm)
-        return;
-    contactForm.addEventListener('submit', (e) => __awaiter(void 0, void 0, void 0, function* () {
-        e.preventDefault();
-        const formData = new FormData(contactForm);
-        const data = {
-            firstName: formData.get('firstName'),
-            lastName: formData.get('lastName'),
-            email: formData.get('email'),
-            message: formData.get('message')
-        };
-        try {
-            const response = yield fetch('/contact', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data)
-            });
-            if (response.ok) {
-                window.location.href = 'thankyou.html';
-            }
-            else {
-                alert('Failed to send message. Please try again later.');
-            }
-        }
-        catch (error) {
-            alert('Error sending message.');
-        }
-    }));
-};
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     initMobileNavigation();
     setupDriveDownload();
-    setupContactFormSubmission();
 });
